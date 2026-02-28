@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram id="HzsbeMb8XEaQc5VrE_Ca" name="HOMELAB_MASTER_ARCHITECTURE">
+    <mxGraphModel dx="2066" dy="1051" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="pfSense Firewall&#xa;Core Router / L3 Boundary&#xa;&#xa;WAN: 192.168.154.128/24&#xa;CORP_LAN: 10.0.0.1&#xa;SOC_NET: 10.0.1.1&#xa;ATTACKER_NET: 10.0.3.1" vertex="1">
+          <mxGeometry height="150" width="320" x="625" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="WAN&#xa;192.168.154.128/24&#xa;NAT Outbound Only&#xa;Bogon Blocked" vertex="1">
+          <mxGeometry height="100" width="250" x="625" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="CORP_LAN&#xa;10.0.0.0/24&#xa;Gateway: 10.0.0.1&#xa;&#xa;Production Network" vertex="1">
+          <mxGeometry height="120" width="300" x="175" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="DC01&#xa;10.0.0.10&#xa;corp.local&#xa;AD DS / DNS / DHCP" vertex="1">
+          <mxGeometry height="100" width="250" x="175" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="DESKTOP-94T0BP0&#xa;10.0.0.100 (DHCP)&#xa;Domain Joined" vertex="1">
+          <mxGeometry height="100" width="250" x="445" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="SOC_NET&#xa;10.0.1.0/24&#xa;Gateway: 10.0.1.1&#xa;&#xa;Security Operations" vertex="1">
+          <mxGeometry height="120" width="300" x="925" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="SOC01&#xa;10.0.1.10&#xa;Splunk Enterprise (9997)&#xa;Sysmon Ingest Confirmed" vertex="1">
+          <mxGeometry height="120" width="300" x="975" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="ATTACKER_NET&#xa;10.0.3.0/24&#xa;Gateway: 10.0.3.1&#xa;&#xa;Red Team Simulation" vertex="1">
+          <mxGeometry height="120" width="300" x="625" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" value="Kali Linux&#xa;10.0.3.50&#xa;Red Team Box" vertex="1">
+          <mxGeometry height="100" width="250" x="675" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-10" edge="1" parent="1" source="H7msv3f2zHt0iNzPWd9t-2" style="endArrow=block;" target="H7msv3f2zHt0iNzPWd9t-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-11" edge="1" parent="1" source="H7msv3f2zHt0iNzPWd9t-1" style="endArrow=block;" target="H7msv3f2zHt0iNzPWd9t-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-12" edge="1" parent="1" source="H7msv3f2zHt0iNzPWd9t-1" style="endArrow=block;" target="H7msv3f2zHt0iNzPWd9t-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="H7msv3f2zHt0iNzPWd9t-13" edge="1" parent="1" source="H7msv3f2zHt0iNzPWd9t-1" style="endArrow=block;" target="H7msv3f2zHt0iNzPWd9t-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
