@@ -28,4 +28,6 @@
 - `/diagrams` → network diagrams (draw.io + PNG)
 
 ## Status
-In progress. Current focus: Splunk ingestion + Sysmon + baseline detections.
+In progress. Current focus: ~~Splunk ingestion + Sysmon + baseline detections.~~ Done
+
+Current focus: Build Journal
